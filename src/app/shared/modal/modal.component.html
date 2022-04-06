@@ -1,0 +1,6 @@
+<p>{{data.message}}</p>
+
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <button mat-raised-button color="primary" (click)="closeDialog(true)">{{data.labelAccept}}</button>
+  <button mat-raised-button color="accent" (click)="closeDialog()">{{data.labelCancel}}</button>
+</div>

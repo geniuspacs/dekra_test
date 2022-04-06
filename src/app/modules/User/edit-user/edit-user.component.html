@@ -1,0 +1,54 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
+  <div fxFlex="45" fxFlex.sm="90">
+    <form (ngSubmit)="createUser()" id="create-user-form" [formGroup]="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput type="text">
+        <mat-error *ngIf="form.get('name')?.hasError('required')">Field is <strong>required</strong></mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Surname 1</mat-label>
+        <input formControlName="surname1" matInput type="text">
+        <mat-error *ngIf="form.get('surname1')?.hasError('required')">Field is <strong>required</strong></mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Surname 2</mat-label>
+        <input formControlName="surname2" matInput type="text">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input formControlName="age" matInput type="number">
+        <mat-error *ngIf="form.get('age')?.hasError('required')">Field is <strong>required</strong></mat-error>
+        <mat-error *ngIf="form.get('age')?.hasError('min')">Min value is <strong>1 year</strong></mat-error>
+        <mat-error *ngIf="form.get('age')?.hasError('max')">Max value is <strong>99 years</strong></mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="text">
+        <mat-error *ngIf="form.get('email')?.hasError('required')">Field is <strong>required</strong></mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">Wrong email format</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input formControlName="username" matInput type="text">
+        <mat-error *ngIf="form.get('username')?.hasError('required')">Field is <strong>required</strong></mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password">
+        <mat-error *ngIf="form.get('password')?.hasError('required')">Field is <strong>required</strong></mat-error>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="space-between">
+        <button [disabled]="!form.valid" mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="accent" (click)="goBack()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
